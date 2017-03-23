@@ -11,6 +11,7 @@ namespace C2B.CSharp.Learn
         static void Main(string[] args)
         {
             var types = new BasicLanguage();
+            var classDesign = new LearnClassDesign();
             C.ReadLine();
         }
     }
