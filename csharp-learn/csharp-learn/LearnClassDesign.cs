@@ -16,6 +16,11 @@ namespace C2B.CSharp.Learn
             var test2 = new TestClass2 { S1 = "TEST1", S2 = "TEST2" };
             test2.print();
             var test3 = new TestClass3();
+
+            TestClass4 tc4a = new TestClass4A();
+            tc4a.name = "Name";
+            Console.WriteLine(tc4a.name);
+            Console.WriteLine("TestclassType: " + (tc4a as TestClass4A).name);
         }
     }
 
@@ -137,5 +142,15 @@ namespace C2B.CSharp.Learn
         {
             WriteLine("Partial");
         }
+    }
+
+    public class TestClass4
+    {
+        public string name;
+    }
+
+    public class TestClass4A:TestClass4
+    {
+        public string newName;
     }
 }
