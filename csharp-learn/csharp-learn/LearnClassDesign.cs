@@ -15,6 +15,7 @@ namespace C2B.CSharp.Learn
             // object initializer
             var test2 = new TestClass2 { S1 = "TEST1", S2 = "TEST2" };
             test2.print();
+            var test3 = new TestClass3();
         }
     }
 
@@ -32,6 +33,12 @@ namespace C2B.CSharp.Learn
         static TestClass1()
         {
             WriteLine("static constructor called");
+        }
+
+        // finalizer
+        ~TestClass1()
+        {
+            WriteLine("Finalize TestClass1");
         }
 
         public TestClass1()
@@ -59,6 +66,9 @@ namespace C2B.CSharp.Learn
 
             // using a constant
             WriteLine(PI);
+
+            // nameof
+            WriteLine(nameof(indexedClass));
         }
 
         // constructor overloading
@@ -84,6 +94,7 @@ namespace C2B.CSharp.Learn
 
         // expression-bodied property
         int SecondProperty => OneProperty + 1;
+
     }
 
     public class TestClass2
@@ -106,6 +117,25 @@ namespace C2B.CSharp.Learn
         {
             get { return words[wordNum]; }
             set { words[wordNum] = value; }
+        }
+    }
+
+    public partial class TestClass3
+    {
+        partial void testMethod();
+    }
+
+    public partial class TestClass3
+    {
+
+        public TestClass3()
+        {
+            testMethod();
+        }
+
+        partial void testMethod()
+        {
+            WriteLine("Partial");
         }
     }
 }
